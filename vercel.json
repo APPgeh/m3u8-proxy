@@ -1,0 +1,13 @@
+{
+  "headers": [
+    {
+      "source": "/(.*)\\.m3u8",
+      "headers": [
+        {
+          "key": "Content-Type",
+          "value": "application/vnd.apple.mpegurl"
+        }
+      ]
+    }
+  ]
+}

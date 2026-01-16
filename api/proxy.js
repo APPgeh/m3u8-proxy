@@ -1,25 +1,23 @@
 export default async function handler(req, res) {
-  const { url } = req.query;
+  const url = req.query.url;
 
   if (!url) {
-    return res.status(400).send("URL não informada");
+    res.status(400).send("missing url");
+    return;
   }
 
-  try {
-    const response = await fetch(url, {
-      headers: {
-        "User-Agent": "Mozilla/5.0",
-        "Referer": "https://rdcplayer.online/",
-        "Origin": "https://rdcplayer.online/"
-      }
-    });
+  const r = await fetch(url, {
+    headers: {
+      "User-Agent": "Mozilla/5.0 (Linux; Android 10)",
+      "Referer": "https://sinal.cc/",
+      "Origin": "https://sinal.cc",
+      "Accept": "*/*"
+    }
+  });
 
-    const data = await response.text();
+  const data = await r.text();
 
-    res.setHeader("Content-Type", "application/vnd.apple.mpegurl");
-    res.setHeader("Access-Control-Allow-Origin", "*");
-    res.status(200).send(data);
-  } catch (err) {
-    res.status(500).send("Erro no proxy");
-  }
+  res.setHeader("Content-Type", "application/vnd.apple.mpegurl");
+  res.setHeader("Access-Control-Allow-Origin", "*");
+  res.status(200).send(data);
 }

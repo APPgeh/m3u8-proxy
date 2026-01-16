@@ -9,8 +9,8 @@ export default async function handler(req, res) {
     const response = await fetch(url, {
       headers: {
         "User-Agent": "Mozilla/5.0",
-        "Referer": "https://sinal.cc/",
-        "Origin": "https://sinal.cc"
+        "Referer": "https://rdcplayer.online/",
+        "Origin": "https://rdcplayer.online/"
       }
     });
 

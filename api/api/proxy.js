@@ -1,0 +1,3 @@
+api/
+canais/
+vercel.json
